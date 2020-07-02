@@ -1,0 +1,8 @@
+.correct {
+ box-shadow: 0 0 50px green !important;
+
+}
+
+.wrong {
+ box-shadow: 0 0 50px #d01115 !important;
+}

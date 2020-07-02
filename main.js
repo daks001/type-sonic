@@ -62,12 +62,15 @@ const check_status = () => {
  if (!is_playing && time === 0) {
   message.innerHTML = "game over";
   score = -1;
+  word_input.classList.add("wrong");
  }
 }
 
 //start matching input
 const start_match = () => {
  if (match_words()) {
+  word_input.classList.add("correct");
+  setTimeout(() => word_input.classList.remove("correct"), 1500);
   is_playing = true;
   time = current_level + 1;
   show_word(words);
@@ -93,4 +96,10 @@ const match_words = () => {
  }
 }
 
+const remove_glow = () => {
+ word_input.classList.remove("wrong");
+ word_input.classList.remove("correct");
+}
+
 window.addEventListener("load", init);
+word_input.addEventListener("input", remove_glow);
