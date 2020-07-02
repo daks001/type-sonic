@@ -1,5 +1,16 @@
 //globals
-let time = 5;
+
+//available levels
+const levels = {
+ easy: 5,
+ medium: 3,
+ hard: 1
+};
+
+//variable to change levels
+const current_level = levels.easy;
+
+let time = current_level;
 let score = 0;
 let is_playing; //whether game is going on or not
 
@@ -14,6 +25,8 @@ const words = ['web development', 'mobile app', 'application', 'developer', 'too
 
 //init function, fires off when window loads
 const init = () => {
+ //show level in UI
+ seconds.innerHTML = current_level;
  //load a random word from array
  show_word(words);
  //start matching on word input
@@ -56,7 +69,7 @@ const check_status = () => {
 const start_match = () => {
  if (match_words()) {
   is_playing = true;
-  time = 6;
+  time = current_level + 1;
   show_word(words);
   word_input.value = "";
   score++;
