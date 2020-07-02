@@ -16,6 +16,8 @@ const words = ['web development', 'mobile app', 'application', 'developer', 'too
 const init = () => {
  //load a random word from array
  show_word(words);
+ //start matching on word input
+ word_input.addEventListener('input', start_match);
  //call countdown every second
  setInterval(countdown, 1000);
  //check status of game: on or over
@@ -46,6 +48,35 @@ const countdown = () => {
 const check_status = () => {
  if (!is_playing && time === 0) {
   message.innerHTML = "game over";
+  score = -1;
+ }
+}
+
+//start matching input
+const start_match = () => {
+ if (match_words()) {
+  is_playing = true;
+  time = 6;
+  show_word(words);
+  word_input.value = "";
+  score++;
+ }
+ if (score === -1) {
+  score_display.innerHTML = 0;
+ } else {
+  score_display.innerHTML = score;
+ }
+}
+
+//macth current_word to word_input
+const match_words = () => {
+ if (word_input.value === current_word.innerHTML) {
+  message.innerHTML = "correct";
+  return true;
+ }
+ else {
+ message.innerHTML = "";
+ return false;
  }
 }
 
