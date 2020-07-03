@@ -6,3 +6,9 @@
 .wrong {
  box-shadow: 0 0 50px #d01115 !important;
 }
+
+.title {
+ font-weight: 200;
+ color: white;
+ text-shadow: 5px 0px 5px black;
+}
