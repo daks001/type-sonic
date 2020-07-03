@@ -4,7 +4,8 @@
 const levels = {
  easy: 5,
  medium: 3,
- hard: 2
+ hard: 2,
+ superhard: 1
 };
 
 //variable to change levels
