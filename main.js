@@ -4,11 +4,29 @@
 const levels = {
  easy: 5,
  medium: 3,
- hard: 1
+ hard: 2
 };
 
 //variable to change levels
-const current_level = levels.easy;
+// let current_level = levels.easy;
+// let level = document.getElementById('#level-select').value;
+// const current_level = levels.level;
+let level;
+
+level = document.getElementById("level-select");
+ // console.log(document.getElementById("level-select").value)
+let current_level = levels[level.value];
+// console.log(levels[level]);
+
+
+
+
+
+
+
+// console.log(level);
+// console.log(levels[level]);
+
 
 let time = current_level;
 let score = 0;
@@ -23,8 +41,18 @@ const message = document.querySelector('#message'); //correct or game over
 const seconds = document.querySelector('#seconds'); 
 const words = ['web development', 'mobile app', 'application', 'developer', 'tools', 'repository', 'javascript', 'query selectors', 'flutter', 'ecmascript', 'command line', 'interface', 'readme.md', 'ruby on rails', 'tutorial', 'chatbot', 'synthesis', 'programming', 'leetcode', 'environment', 'virtual', 'variable', 'constant', 'do while', 'return']; 
 
+const level_val = () => {
+ // level = document.getElementById("level-select").value;
+ // console.log(document.getElementById("level-select").value)
+ current_level = levels[level.value];
+ time = current_level;
+ seconds.innerHTML = current_level;
+ console.log('changed level to ' + current_level);
+};
+
 //init function, fires off when window loads
 const init = () => {
+ // level_val();
  //show level in UI
  seconds.innerHTML = current_level;
  //load a random word from array
@@ -79,6 +107,7 @@ const start_match = () => {
  }
  if (score === -1) {
   score_display.innerHTML = 0;
+  seconds.innerHTML = current_level;
  } else {
   score_display.innerHTML = score;
  }
@@ -103,3 +132,4 @@ const remove_glow = () => {
 
 window.addEventListener("load", init);
 word_input.addEventListener("input", remove_glow);
+level.addEventListener("change", level_val);
