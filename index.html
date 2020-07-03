@@ -10,12 +10,21 @@
 </head>
 <body class="bg-light text-black">
  <header class="bg-primary text-center text-black p-3 mb-5">
-  <h1>Type Sonic</h1>
+  <h1 class="title">Type Sonic</h1>
  </header>
  <div class="container text-center">
   <!-- word and input -->
   <div class="row">
    <div class="col-md-6 mx-auto">
+    <div class="form-group mb-5">
+     <h6 class="lead">Choose the level of diffulty:</h6>
+     <select id="level-select" class="form-control" required>
+      <!-- <option value="select" selected>select...</option> -->
+      <option value="easy" selected>easy</option>
+      <option value="medium">medium</option>
+      <option value="hard">hard</option>
+     </select>
+    </div>
     <p class="lead">Type the given word within <span class="text-danger" id="seconds">5</span> seconds:</p>
     <h2 class="display-4 mb-5" id="current-word">hello</h2>
     <input type="text" class="form-control" placeholder="start typing..." id="word-input" autofocus>
